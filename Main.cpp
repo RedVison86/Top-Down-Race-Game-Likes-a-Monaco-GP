@@ -25,21 +25,21 @@ int main()
     RenderWindow app(VideoMode(400, 530), "DDF");
     app.setFramerateLimit(60);
 
-    std::vector<Person> pers(4);
+    std::vector<Person> pers(3);
     Person player;
     Person bg;
 
     bg.tex.loadFromFile("images/bga.png");
     bg.spr.setTexture(bg.tex);
 
-    player.tex.loadFromFile("images/pla.png");
+    player.tex.loadFromFile("images/m.png");
     player.spr.setTexture(player.tex);
     player.x = 200;
     player.y = 250;
 
     for (unsigned int i = 0; i < pers.size(); i++)
     {
-        pers[i].tex.loadFromFile("images/m.png");
+        pers[i].tex.loadFromFile("images/pl.png");
         pers[i].spr.setTexture(pers[i].tex);
         pers[i].x = rand() % 400;
         pers[i].y = rand() % 500;
@@ -112,7 +112,7 @@ int main()
         {
 
             if (isCollide(player.spr, pers[i].spr)) {
-                player.spr.setColor(Color::Blue);
+
                 player.y += 50;
             }
                         app.draw(pers[i].spr);
